@@ -1,7 +1,7 @@
 # BREADTH-FIRST-SEARCH
 <h1>ExpNo 3 : Implement Breadth First Search Traversal of a Graph</h1> 
-<h3>Name:  </h3>
-<h3>Register Number: </h3>
+<h3>Name: DHILSANRAJ S </h3>
+<h3>Register Number: 212225230058 </h3>
 <H3>Aim:</H3>
 <p>To Implement Breadth First Search Traversal of a Graph using Python 3.</p>
 <h3>Theory:</h3>
@@ -103,6 +103,49 @@ G F <BR>
 <hr>
 ['0', '1', '2', '3', '4']
 <hr>
+
+<h2>Program :</h2>
+
+```
+
+from collections import defaultdict
+
+def dfs(graph, start, visited, path):
+    visited[start] = True
+    path.append(start)
+
+    for neighbor in graph[start]:
+        if not visited[neighbor]:
+            dfs(graph, neighbor, visited, path)
+
+    return path
+
+
+graph = defaultdict(list)
+
+v, e = map(int, input().split())
+
+for i in range(e):
+    u, w = input().split()
+    graph[u].append(w)
+    graph[w].append(u)
+
+start = input("Enter starting vertex: ")
+
+visited = defaultdict(bool)
+path = []
+
+traversed_path = dfs(graph, start, visited, path)
+
+print(traversed_path)
+
+```
+
+
+<h2>Output :</h2>
+<img width="993" height="177" alt="image" src="https://github.com/user-attachments/assets/b837b7be-eaff-4ea5-9196-9388967b4c9f" />
+
+
 <h3>Result:</h3>
 <hr>
 <p>Thus,a Graph was constructed and implementation of Breadth First Search for the same graph was done successfully.</p>
